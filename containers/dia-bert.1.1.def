@@ -13,7 +13,7 @@ From: pytorch:2.6.0-cuda12.6-cudnn9-devel.sif
 
 %post
 	apt-get -y update
-	apt-get install -y git libblas-dev
+	apt-get install -y git libflexiblas3
 	#libgtk-3-dev
 
 	cd /
