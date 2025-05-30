@@ -17,7 +17,7 @@ From: pytorch:2.6.0-cuda12.6-cudnn9-devel.sif
 	#libgtk-3-dev
 
 	pip install Cython
-	pip uninstall numpy
+	pip uninstall -y numpy
 	pip install numpy==1.26.4 --no-binary :all: -C-Dblas=openblas -C-Dlapack=openblas
 
 	python -c "import numpy as np; print(np.show_config())"
