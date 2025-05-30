@@ -1,16 +1,42 @@
-# Build image: singularity build --force --fakeroot envBarcodeMiner.sif envBarcodeMiner.def
+# first: singularity build pytorch:2.6.0-cuda12.6-cudnn9-devel.sif docker://pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel
+# Build image: singularity build --force --fakeroot dia-bert.1.1.sif dia-bert.1.1.def
 # on mopb:
 # ml apptainer
 # env -i PATH=/usr/bin:/bin /cvmfs/soft.computecanada.ca/easybuild/software/2020/Core/apptainer/1.2.4/bin/singularity build --force --fakeroot envBarcodeMiner.mp2.sif envBarcodeMiner.def
-BootStrap: docker
-From: pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel
+BootStrap: localimage
+From: pytorch:2.6.0-cuda12.6-cudnn9-devel.sif
 
 %environment
 #  export PATH=/opt/dicey/bin:$PATH
 
 %post
-#	apt-get -y update
-#	apt-get install -y \
+	apt-get -y update
+	apt-get install -y git libgtk-3-dev
+
+	cd /
+  git clone https://github.com/guomics-lab/DIA-BERT.git
+  cd DIA-BERT
+
+	pip install \
+    wxPython \
+    pandas \
+    pypubsub \
+    pyyaml \
+    scikit-learn
+#    pyteomics \
+#    statsmodels \
+#    ropwr \
+#    pulp \
+#    lxml \
+#    tensorboard \
+#    lightning \
+#    scipy \
+#    matplotlib \
+#    gputil \
+#    ecos \
+#    numpy==1.26.4 \
+#    pyinstaller==6.2.0
+
 #	autoconf build-essential cmake g++ gfortran git \
 #	libcurl4-gnutls-dev hdf5-tools libboost-date-time-dev \
 #	libboost-program-options-dev libboost-system-dev \
@@ -23,8 +49,8 @@ From: pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel
 #	apt-get clean
 #	rm -rf /var/lib/apt/lists/*
 
-  cd /
-  git clone https://github.com/guomics-lab/DIA-BERT.git
-  cd DIA-BERT
-
-  pip install -r requirements.txt
+#  cd /
+#  git clone https://github.com/guomics-lab/DIA-BERT.git
+#  cd DIA-BERT
+#
+#  pip install -r requirements.txt
