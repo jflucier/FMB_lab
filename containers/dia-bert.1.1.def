@@ -13,14 +13,14 @@ From: pytorch:2.6.0-cuda12.6-cudnn9-devel.sif
 
 %post
 	apt-get -y update
-	apt-get install -y git libgtk-3-dev
+	apt-get install -y git
+	#libgtk-3-dev
 
 	cd /
   git clone https://github.com/guomics-lab/DIA-BERT.git
   cd DIA-BERT
 
 	pip install \
-    wxPython \
     pandas \
     pypubsub \
     pyyaml \
@@ -37,7 +37,8 @@ From: pytorch:2.6.0-cuda12.6-cudnn9-devel.sif
     gputil \
     ecos \
     pyinstaller==6.2.0
-    #numpy==1.26.4 \
+#    wxPython \
+#    numpy==1.26.4 \
 
 
 #	autoconf build-essential cmake g++ gfortran git \
