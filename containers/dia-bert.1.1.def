@@ -41,6 +41,7 @@ From: pytorch:2.6.0-cuda12.6-cudnn9-devel.sif
 #    wxPython \
 #    numpy==1.26.4 \
 
+pip install -U numpy==1.26.4
 
 #	autoconf build-essential cmake g++ gfortran git \
 #	libcurl4-gnutls-dev hdf5-tools libboost-date-time-dev \
