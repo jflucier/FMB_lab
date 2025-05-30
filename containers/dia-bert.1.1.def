@@ -22,20 +22,20 @@ From: pytorch:2.6.0-cuda12.6-cudnn9-devel.sif
     pandas \
     pypubsub \
     pyyaml \
-    scikit-learn
-#    pyteomics \
-#    statsmodels \
-#    ropwr \
-#    pulp \
-#    lxml \
-#    tensorboard \
-#    lightning \
-#    scipy \
-#    matplotlib \
-#    gputil \
-#    ecos \
-#    numpy==1.26.4 \
-#    pyinstaller==6.2.0
+    scikit-learn \
+    pyteomics \
+    statsmodels \
+    ropwr \
+    pulp \
+    lxml \
+    tensorboard \
+    lightning \
+    scipy \
+    matplotlib \
+    gputil \
+    ecos \
+    numpy==1.26.4 \
+    pyinstaller==6.2.0
 
 #	autoconf build-essential cmake g++ gfortran git \
 #	libcurl4-gnutls-dev hdf5-tools libboost-date-time-dev \
