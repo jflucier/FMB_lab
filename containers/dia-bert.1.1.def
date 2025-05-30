@@ -13,7 +13,7 @@ From: pytorch:2.6.0-cuda12.6-cudnn9-devel.sif
 
 %post
 	apt-get -y update
-	apt-get install -y git libblas-dev libblas3
+	apt-get install -y git libopenblas-dev
 	#libgtk-3-dev
 
 	cd /
@@ -41,7 +41,7 @@ From: pytorch:2.6.0-cuda12.6-cudnn9-devel.sif
 #    wxPython \
 #    numpy==1.26.4 \
 
-pip install -U numpy==1.26.4
+#pip install -U numpy==1.26.4
 
 #	autoconf build-essential cmake g++ gfortran git \
 #	libcurl4-gnutls-dev hdf5-tools libboost-date-time-dev \
