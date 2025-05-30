@@ -1,0 +1,30 @@
+# Build image: singularity build --force --fakeroot envBarcodeMiner.sif envBarcodeMiner.def
+# on mopb:
+# ml apptainer
+# env -i PATH=/usr/bin:/bin /cvmfs/soft.computecanada.ca/easybuild/software/2020/Core/apptainer/1.2.4/bin/singularity build --force --fakeroot envBarcodeMiner.mp2.sif envBarcodeMiner.def
+BootStrap: docker
+From: pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel
+
+%environment
+#  export PATH=/opt/dicey/bin:$PATH
+
+%post
+#	apt-get -y update
+#	apt-get install -y \
+#	autoconf build-essential cmake g++ gfortran git \
+#	libcurl4-gnutls-dev hdf5-tools libboost-date-time-dev \
+#	libboost-program-options-dev libboost-system-dev \
+#	libboost-filesystem-dev libboost-iostreams-dev \
+#	libbz2-dev libhdf5-dev libncurses-dev liblzma-dev \
+#	zlib1g-dev libdeflate-dev python3 python3-pip ncbi-blast+ \
+#	samtools seqkit libhts-dev tabix \
+#	perl cpanminus
+#
+#	apt-get clean
+#	rm -rf /var/lib/apt/lists/*
+
+  cd /
+  git clone https://github.com/guomics-lab/DIA-BERT.git
+  cd DIA-BERT
+
+  pip install -r requirements.txt
