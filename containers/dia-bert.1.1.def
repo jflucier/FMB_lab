@@ -1,8 +1,8 @@
 # first: singularity build pytorch:2.6.0-cuda12.6-cudnn9-devel.sif docker://pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel
 # Build image: singularity build --force --fakeroot dia-bert.1.1.sif dia-bert.1.1.def
 # test:
-ml apptainer
-singularity exec -e dia-bert.1.1.sif python /DIA-BERT/main_linux.py
+#ml apptainer
+#singularity exec -e dia-bert.1.1.sif python /DIA-BERT/main_linux.py
 # ml apptainer
 # env -i PATH=/usr/bin:/bin /cvmfs/soft.computecanada.ca/easybuild/software/2020/Core/apptainer/1.2.4/bin/singularity build --force --fakeroot envBarcodeMiner.mp2.sif envBarcodeMiner.def
 BootStrap: localimage
