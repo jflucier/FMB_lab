@@ -13,6 +13,7 @@ From: ubuntu:22.04
 	ffmpeg libsm6 libxext6 libegl1 \
 	libblas-dev liblapack-dev libatlas-base-dev \
 	cmake gfortran \
+	libxml2-dev libxslt-dev \
 	python3 python3-pip
 
 	apt-get clean
@@ -32,5 +33,6 @@ From: ubuntu:22.04
 
 
 	pip install git+https://github.com/gtluu/timsconvert
-#  pip install hdf5plugin
   pip install --force-reinstall numpy==2.1.1 hdf5plugin
+
+
