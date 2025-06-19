@@ -12,7 +12,7 @@ From: ubuntu:22.04
 	autoconf build-essential git libglib2.0-dev \
 	ffmpeg libsm6 libxext6 libegl1 \
 	libblas-dev liblapack-dev libatlas-base-dev \
-	libflexiblas3 \
+	libflexiblas-dev \
   python3 python3-pip
 
 	apt-get clean
