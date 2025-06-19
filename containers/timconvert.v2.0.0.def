@@ -18,7 +18,7 @@ From: ubuntu:22.04
 	apt-get clean
 	rm -rf /var/lib/apt/lists/*
 
-  git clone https://gitlab.com/flexiblas/flexiblas-release.git /flexiblas
+  git clone --depth 1 https://gitlab.com/flexiblas/flexiblas-release.git /flexiblas
   cd /flexiblas
   mkdir build
   cd build
