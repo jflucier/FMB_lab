@@ -1,0 +1,23 @@
+# Build image:
+# singularity build --force --fakeroot timconvert.v2.0.0.sif docker://animesh1977/timsconvert
+# test: singularity exec -e timconvert.v2.0.0.sif timsconvert
+BootStrap: docker
+From: ubuntu:22.04
+
+%environment
+
+%post
+	apt-get -y update
+	apt-get install -y \
+	autoconf build-essential git libglib2.0-dev \
+	ffmpeg libsm6 libxext6 libegl1 \
+	libblas-dev liblapack-dev libatlas-base-dev \
+  libcblas-dev libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-dev libqtgui4 libqt4-test \
+  python3 python3-pip
+
+	apt-get clean
+	rm -rf /var/lib/apt/lists/*
+
+	pip install git+https://github.com/gtluu/timsconvert
+#  pip install hdf5plugin
+  pip install --force-reinstall numpy==2.1.1 hdf5plugin

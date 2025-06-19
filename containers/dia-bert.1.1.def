@@ -1,8 +1,10 @@
 # first: singularity build pytorch:2.6.0-cuda12.6-cudnn9-devel.sif docker://pytorch/pytorch:2.6.0-cuda12.6-cudnn9-devel
-# Build image: singularity build --force --fakeroot dia-bert.1.1.sif dia-bert.1.1.def
+# Build images:
+# singularity build --force --fakeroot pwiz-skyline.sif docker://chambm/pwiz-skyline-i-agree-to-the-vendor-licenses
+# singularity build --force --fakeroot dia-bert.1.1.sif dia-bert.1.1.def
 # test:
 #ml apptainer
-#singularity exec -e dia-bert.1.1.sif python /DIA-BERT/main_linux.py
+#singularity exec -W /DIA-BERT -e dia-bert.1.1.sif python /DIA-BERT/main_linux.py
 # ml apptainer
 # env -i PATH=/usr/bin:/bin /cvmfs/soft.computecanada.ca/easybuild/software/2020/Core/apptainer/1.2.4/bin/singularity build --force --fakeroot envBarcodeMiner.mp2.sif envBarcodeMiner.def
 BootStrap: localimage
@@ -18,32 +20,33 @@ From: pytorch:2.6.0-cuda12.6-cudnn9-devel.sif
 
 	pip install Cython
 	pip uninstall -y numpy
-	pip install numpy==1.26.4 --no-binary :all: -C-Dblas=openblas -C-Dlapack=openblas
+	pip install numpy==1.26.4
+	#--no-binary :all: -C-Dblas=openblas -C-Dlapack=openblas
 
 	python -c "import numpy as np; print(np.show_config())"
 
-#	cd /
-#  git clone https://github.com/guomics-lab/DIA-BERT.git
-#  cd DIA-BERT
-#
-#	pip install \
-#    pandas \
-#    pypubsub \
-#    pyyaml \
-#    scikit-learn \
-#    pyteomics \
-#    statsmodels \
-#    ropwr \
-#    pulp \
-#    lxml \
-#    tensorboard \
-#    lightning \
-#    scipy \
-#    matplotlib \
-#    gputil \
-#    ecos \
-#    pyinstaller==6.2.0 \
-#    numpy==1.26.4
+	cd /
+  git clone https://github.com/guomics-lab/DIA-BERT.git
+  cd DIA-BERT
+
+	pip install \
+    pandas \
+    pypubsub \
+    pyyaml \
+    scikit-learn \
+    pyteomics \
+    statsmodels \
+    ropwr \
+    pulp \
+    lxml \
+    tensorboard \
+    lightning \
+    scipy \
+    matplotlib \
+    gputil \
+    ecos \
+    pyinstaller==6.2.0 \
+    numpy==1.26.4
 
 
 #    wxPython \
